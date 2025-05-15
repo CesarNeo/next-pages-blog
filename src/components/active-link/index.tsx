@@ -5,10 +5,7 @@ import type { TActiveLinkProps } from './types';
 
 function ActiveLink({ href, as, ...props }: TActiveLinkProps) {
   const router = useRouter();
-  const isCurrentPath =
-    router.asPath === href ||
-    router.asPath === as ||
-    router.asPath.startsWith(String(as));
+  const isCurrentPath = router.asPath === href || router.asPath === as;
 
   return (
     <Link
@@ -16,8 +13,8 @@ function ActiveLink({ href, as, ...props }: TActiveLinkProps) {
       href={href}
       data-active={isCurrentPath}
       className={cn(
-        'text-sm font-medium transition-colors hover:text-blue-500',
-        'text-muted-foreground data-[active="true"]:text-blue-500',
+        'text-action-sm font-action-sm leading-action-sm transition-colors hover:text-blue-200',
+        'text-gray-100 data-[active="true"]:text-blue-200',
       )}
     />
   );
