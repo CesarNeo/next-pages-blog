@@ -99,9 +99,6 @@
   --font-sans: PT Sans Caption, sans-serif;
   --font-inter: Inter, sans-serif;
 
-  --container-screen-2xl: 1200px;
-  --container-padding: 2rem;
-
   --text-heading-hg: 2.5rem;
   --leading-heading-hg: 120%;
   --font-weight-heading-hg: 700;
@@ -192,5 +189,9 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  .container {
+    @apply max-w-screen-2xl p-8 mx-auto;
   }
 }
