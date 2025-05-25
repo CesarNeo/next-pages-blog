@@ -8,7 +8,7 @@ function HeroSection() {
     <section className="relative container mt-16 flex items-center justify-center">
       <div className="grid min-h-80 grid-cols-1 items-center gap-8 md:h-144 md:grid-cols-2">
         <div className="flex flex-col items-center justify-center gap-4 md:items-start">
-          <h1 className="text-heading-hg leading-heading-hg font-heading-hg text-pretty text-gray-100">
+          <h1 className="text-heading-hg leading-heading-hg font-heading-hg font-pt-caption text-pretty text-gray-100">
             Venda seus produtos como afiliado em um único lugar
           </h1>
 
