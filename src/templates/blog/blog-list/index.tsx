@@ -28,7 +28,17 @@ function BlogList() {
         </div>
       </header>
 
-      <PostCard />
+      <PostCard
+        title="Como criar uma estratégia de marketing digital"
+        slug="como-criar-uma-estrategia-de-marketing-digital"
+        description="Aprenda a criar uma estratégia de marketing digital eficaz para o seu negócio."
+        image="/assets/primeiro-post.png"
+        date="01/10/2023"
+        author={{
+          name: 'Lucas Oliveira',
+          avatar: '/assets/primeiro-post.png',
+        }}
+      />
     </div>
   );
 }
