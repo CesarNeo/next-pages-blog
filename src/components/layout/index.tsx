@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { Inter, PT_Sans_Caption as PtSansCaption } from 'next/font/google';
-import Footer from '../footer';
-import Header from '../header';
+import Footer from './components/footer';
+import Header from './components/header';
 import type { TLayoutProps } from './types';
 
 const inter = Inter({

@@ -1,7 +1,7 @@
 import { ArrowRight, Clock, Store } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../ui/button';
+import { Button } from '../../../../components/ui/button';
 
 function HeroSection() {
   return (
@@ -16,13 +16,13 @@ function HeroSection() {
             <div>
               <div className="flex items-center gap-2">
                 <Clock className="size-4 text-cyan-100" />
-                <span className="text-gray-200">
+                <span className="text-body-md font-body-md leading-body-md text-gray-200">
                   Crie o seu site em menos de 5 minutos
                 </span>
               </div>
               <div className="flex items-center gap-2">
                 <Store className="size-4 text-cyan-100" />
-                <span className="text-gray-200">
+                <span className="text-body-md font-body-md leading-body-md text-gray-200">
                   Acompanhe e otimize seu negócio online
                 </span>
               </div>
