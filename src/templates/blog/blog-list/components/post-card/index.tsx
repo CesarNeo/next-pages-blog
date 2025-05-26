@@ -25,7 +25,7 @@ function PostCard({
 
           <Image
             src={image}
-            alt=""
+            alt={title}
             width={288}
             height={144}
             className="h-40 w-full rounded-lg object-cover object-center"
