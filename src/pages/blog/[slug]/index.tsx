@@ -64,6 +64,7 @@ function PostPage() {
                 <Avatar.Image
                   src={post?.author.avatar}
                   alt={post?.author.name}
+                  size="sm"
                 />
 
                 <Avatar.Content>
