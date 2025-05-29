@@ -47,6 +47,7 @@ const eslintConfig = [
   ),
   {
     rules: {
+      'consistent-return': 'off',
       'jsx-a11y/anchor-has-content': 'off',
       'jsx-a11y/heading-has-content': 'off',
       'no-underscore-dangle': 'off',

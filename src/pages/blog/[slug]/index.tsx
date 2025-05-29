@@ -8,6 +8,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
+import { useShare } from '@/hooks/use-share';
 import { allPosts } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,6 +21,13 @@ function PostPage() {
     postFind => postFind.slug.toLocaleLowerCase() === slug.toLocaleLowerCase(),
   );
   const publishedDate = new Date(post?.date ?? '').toLocaleDateString('pt-BR');
+  const postUrl = 'https://site.com/blog/'.concat(slug);
+
+  const { shareButtons } = useShare({
+    url: postUrl,
+    title: post?.title,
+    text: post?.description,
+  });
 
   return (
     <main className="mt-32">
@@ -84,14 +92,22 @@ function PostPage() {
           </article>
 
           <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700 p-4 md:p-6">
+            <div className="rounded-lg bg-gray-700">
               <h2 className="text-heading-xs font-heading-xs leading-heading-xs font-pt-caption mb-4">
                 Compartilhar
               </h2>
 
               <div className="space-y-3">
-                {Array.from({ length: 4 }).map(provider => (
-                  <Button variant="outline">LinkedIn</Button>
+                {shareButtons.map(provider => (
+                  <Button
+                    key={provider.provider}
+                    variant="outline"
+                    className="w-full justify-start"
+                    onClick={provider.action}
+                  >
+                    {provider.icon}
+                    {provider.name}
+                  </Button>
                 ))}
               </div>
             </div>
