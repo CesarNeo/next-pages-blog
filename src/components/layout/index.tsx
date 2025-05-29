@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Inter, PT_Sans_Caption as PtSansCaption } from 'next/font/google';
+import CallToAction from '@/templates/landing-page/sections/call-to-action';
 import Footer from './components/footer';
 import Header from './components/header';
 import type { TLayoutProps } from './types';
@@ -28,6 +29,7 @@ function Layout({ children }: TLayoutProps) {
 
       <main className="mt-10 mb-12 flex flex-1 flex-col">{children}</main>
 
+      <CallToAction />
       <Footer />
     </div>
   );

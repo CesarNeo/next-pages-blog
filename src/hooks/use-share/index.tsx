@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { useCallback, useMemo } from 'react';
-import { Link2, CopyCheck } from 'lucide-react';
+import { CopyCheck, Link } from 'lucide-react';
 import { SOCIAL_PROVIDERS } from './social-providers';
 import type { TSocialProvider, TUseShareProps } from './types';
 import { useClipboard } from '../use-clipboard';
@@ -66,7 +66,8 @@ function useShare({
         icon: isCopied ? (
           <CopyCheck className="size-4" />
         ) : (
-          <Link2 className="size-4" />
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <Link className="size-4" />
         ),
         action: () => share('clipboard'),
       },
