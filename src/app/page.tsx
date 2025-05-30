@@ -1,5 +1,7 @@
 import LandingPage from '@/templates/landing-page';
 
-export default function Home() {
+function HomePage() {
   return <LandingPage />;
 }
+
+export default HomePage;
