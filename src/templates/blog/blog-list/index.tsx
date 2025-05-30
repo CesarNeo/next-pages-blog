@@ -19,7 +19,7 @@ function BlogList({ posts }: TBlogListProps) {
       )
     : posts;
 
-  const hasPosts = posts.length > 0;
+  const hasPosts = allPosts.length > 0;
 
   return (
     <div className="flex h-full grow flex-col py-24">

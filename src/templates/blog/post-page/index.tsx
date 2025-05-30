@@ -9,18 +9,13 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { useShare } from '@/hooks/use-share';
-import { allPosts } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import type { TPostPageProps } from './types';
 
-function PostPageTemplate() {
-  const router = useRouter();
-  const { slug } = router.query as { slug: string };
-  const post = allPosts.find(
-    postFind =>
-      postFind.slug?.toLocaleLowerCase() === slug?.toLocaleLowerCase(),
-  );
+function PostPageTemplate({ post }: TPostPageProps) {
+  const { slug } = post;
+
   const publishedDate = new Date(post?.date ?? '').toLocaleDateString('pt-BR');
   const postUrl = 'https://site.com/blog/'.concat(slug);
 
