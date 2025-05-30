@@ -3,11 +3,20 @@
 import { cn } from '@/lib/utils';
 import { CircleX, SearchIcon } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, type ChangeEvent, type FormEvent } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  type ChangeEvent,
+  type FormEvent,
+} from 'react';
 
 function Search() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const inputSearchRef = useRef<HTMLInputElement | null>(null);
+
+  const hasQuery = !!searchParams?.has('q');
   const query = searchParams?.get('q') ?? '';
 
   const handleSearchSubmit = useCallback(
@@ -33,6 +42,12 @@ function Search() {
     router.push('/blog', { scroll: false });
   };
 
+  useEffect(() => {
+    if (inputSearchRef.current && hasQuery) {
+      inputSearchRef.current.focus();
+    }
+  }, [hasQuery]);
+
   return (
     <form
       className="group relative w-full md:w-60"
@@ -46,6 +61,7 @@ function Search() {
       />
 
       <input
+        ref={inputSearchRef}
         value={query}
         onChange={handleQueryChange}
         type="text"
