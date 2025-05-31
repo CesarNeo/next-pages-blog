@@ -4,4 +4,8 @@ type TPostPageProps = {
   post: Post;
 };
 
-export type { TPostPageProps };
+type TBlogPostPageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export type { TPostPageProps, TBlogPostPageProps };

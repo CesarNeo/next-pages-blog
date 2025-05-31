@@ -7,23 +7,16 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
-import { useShare } from '@/hooks/use-share';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { TPostPageProps } from './types';
+import PostShare from './components/post-share';
 
 function PostPageTemplate({ post }: TPostPageProps) {
   const { slug } = post;
 
   const publishedDate = new Date(post?.date ?? '').toLocaleDateString('pt-BR');
   const postUrl = 'https://site.com/blog/'.concat(slug);
-
-  const { shareButtons } = useShare({
-    url: postUrl,
-    title: post?.title,
-    text: post?.description,
-  });
 
   return (
     <main className="py-20">
@@ -87,27 +80,7 @@ function PostPageTemplate({ post }: TPostPageProps) {
             </div>
           </article>
 
-          <aside className="space-y-6">
-            <div className="rounded-lg bg-gray-700">
-              <h2 className="text-heading-xs font-heading-xs leading-heading-xs font-pt-caption mb-4">
-                Compartilhar
-              </h2>
-
-              <div className="space-y-3">
-                {shareButtons.map(provider => (
-                  <Button
-                    key={provider.provider}
-                    variant="outline"
-                    className="w-full justify-start"
-                    onClick={provider.action}
-                  >
-                    {provider.icon}
-                    {provider.name}
-                  </Button>
-                ))}
-              </div>
-            </div>
-          </aside>
+          <PostShare post={post} postUrl={postUrl} />
         </div>
       </div>
     </main>
